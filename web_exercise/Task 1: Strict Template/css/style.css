@@ -1,0 +1,106 @@
+body {
+     font-family: 'Noto Sans JP', sans-serif;
+}
+ .fab {
+     font-size: 24px;
+     color: #15A4FA 
+}
+nav {
+	border-bottom:1px solid rgb(220,220,220);
+	padding-bottom:10px
+	color: rgb(128,128,128);
+
+}
+ #navigationBar {
+     margin: 10px;
+     padding: 10px;
+}
+
+ #aboutTemplate {
+     margin: 10px;
+     padding: 10px;
+}
+ #features {
+     margin: 10px;
+     padding: 10px;
+}
+ .card-img-top {
+     width: 15%;
+     height: 15%;
+     align-self: center;
+}
+ .card-text{
+     color: #A9A9A9;
+}
+ #moreTemplate {
+     margin: 10px;
+     padding: 5%px;
+}
+ .img-container {
+     position: relative;
+     width: 100%;
+     height: auto;
+     margin: 10px;
+     padding: 0px;
+     background-color:#2BABF6;
+}
+ .image {
+     opacity: 1;
+     display: block;
+     width: 100%;
+     height: auto;
+     transition: .5s ease;
+     backface-visibility: hidden;
+}
+ .middle {
+     transition: .5s ease;
+     opacity: 0;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     -ms-transform: translate(-50%, -50%);
+     text-align: center;
+}
+ .img-container:hover .image {
+     opacity: 0.3;
+     background-color: #2BABF6;
+}
+ .img-container:hover .middle {
+     opacity: 1;
+}
+ li:hover {
+     background-color: #5FC3FF;
+}
+ .icons {
+     background-color: #2BABF6;
+     color: white;
+     font-size: 16px;
+     padding: 16px 32px;
+     border: 1px white solid;
+     opacity: 0.8;
+     border-radius: 5px;
+}
+ #formSection {
+     background: linear-gradient(0deg, rgba(1,11,28,0.8), rgba(1,11,28,0.8)), url(../images/bg-stay.png);
+     background-repeat: no-repeat;
+     background-size: 100%;
+     width: 99%;
+     margin: 10px;
+     padding: 3%;
+}
+ .form-group {
+     width: 100%;
+}
+ .form-control {
+     background-color: transparent;
+     border: #707080 1px solid;
+}
+ .form-check-input {
+     opacity: 0.7;
+}
+ #footerSection {
+     font-size: 16px;
+     margin: 10px;
+     padding: 10px;
+}

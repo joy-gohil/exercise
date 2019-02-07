@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Task</title>
+	<script type="text/javascript">
+		let strings;
+		function myFunction () {
+			let arr = [ 1, 2, 
+						"joy", 
+						"gohil", 
+						{ first:  
+							{ 	
+								OneOfOne: function abc(a,b) { return (a*b); }, 
+							 	OneOfTwo: 'Hello',
+							 	OneOfThree: 10 
+							 } 
+						 },
+						{ second: {
+								e:"undefined",
+								f:{
+									ff1:"dsbvkj",
+									Sam:{
+										name:"Samarth Nasit",
+										college:"DAIICT"
+									}
+
+								}
+							} 
+						},
+						"Last one to Parse" ];
+			let lenght = arr.length;
+			let i=0, tempObject = {}, count = 0;
+			let newArr = [];
+			for (; i < lenght; i++) {
+				if (typeof arr[i] == "number") {
+					count += arr[i];
+					tempObject.key = arr[i].toString();
+					tempObject.count = count;
+					newArr.push(tempObject);
+				}	
+				else if (typeof arr[i] == "string") {
+					tempObject.key = arr[i];
+					tempObject.name = arr[i];
+					newArr.push(tempObject);
+				}	
+				else {
+					strings = '{';
+					overObject(arr[i]);
+					strings += '}';
+					console.log(strings);
+					newArr.push(JSON.parse(strings));
+				}
+				tempObject = {};
+			} 
+			console.log(newArr);
+			document.getElementById("text").innerHTML = JSON.stringify(newArr, null, "  ");
+		}
+		function overObject(object){
+			let keys = Object.keys(object);
+			for (var i = 0; i < keys.length; i++) {
+				if (typeof object[keys[i]] == "object") {
+					strings += '"'+keys[i]+'"'+':';
+					strings += '{';
+					overObject(object[keys[i]]);
+					strings += '}'; 
+					break;
+				}else{	
+					comma = (i==keys.length-1)?'':',';
+					strings	 += '"'+keys[i]+'"'+ ':' +'"'+object[keys[i]]+'"'+comma ;
+				}
+			}
+		}
+	</script>
+</head>
+	<body onload="myFunction()">
+		<pre id="text"></pre>
+	</body>
+</html>

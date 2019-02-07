@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Task2</title>
+	<style>
+	  table, th, td {
+	    border: 1px solid orange;
+	    margin: 10px;
+	  }
+	  th, td {
+	    padding: 10px;
+	  }
+	</style>
+	<script type="text/javascript">
+		let id = 1;
+		
+		function addElement(element){
+			let item = document.getElementById(element);
+			let clone = item.cloneNode(true);
+			clone.id = "childDiv"+id;
+			changeValues(clone);
+			id++;
+			clone.appendAfter(item);
+			updateTable();
+		}
+		Element.prototype.appendAfter = function(element) {
+			element.parentNode.insertBefore(this, element.nextSibling);
+		}, false;
+		function remElement(element){
+			let item = document.getElementById(element);
+			item.remove();
+			updateTable();
+		}
+		function changeValues(element){
+			let inputTextBTN = element.querySelector('#inputText');
+			let addBTN = element.querySelector('#addElement');
+			let remBTN = element.querySelector('#remElement');
+			let upBTN = element.querySelector('#up');
+			let downBTN = element.querySelector('#down');
+			inputTextBTN.value = "childDiv"+id;
+			addBTN.setAttribute("onclick", 'addElement("childDiv'+id+'")');
+			remBTN.setAttribute("onclick", 'remElement("childDiv'+id+'")');
+			upBTN.setAttribute("onclick", 'chLOC("childDiv'+id+'","up")');
+			downBTN.setAttribute("onclick", 'chLOC("childDiv'+id+'","down")');
+		}
+		function chLOC(element, flag){	
+			element = document.getElementById(element);
+			if (flag == "up"){
+				if(element.previousElementSibling)
+  					element.parentNode.insertBefore(element, element.previousElementSibling);
+			}else if (flag == "down"){
+				if(element.nextElementSibling)
+  					element.parentNode.insertBefore(element.nextElementSibling, element);
+			}
+			updateTable();
+		}
+		function getChild(element){
+			let inp = document.getElementsByTagName("input");
+			let arrValue = [];
+			for (var i = 0; i < inp.length; i++) {
+				arrValue[i] = inp[i].value;
+			}
+			return arrValue;
+		}
+		function getArray(){
+			return getChild(document.getElementById("container"));
+		}
+		function updateTable(){
+			let table = document.getElementById("table");
+			while(table.hasChildNodes()){
+				table.removeChild(table.firstChild);
+			}
+			let newRow;
+			let newCell;			
+			let inpArr = getArray();
+			let textNode;
+			for (var i = 0; i < inpArr.length; i++) {
+				textNode = document.createTextNode(inpArr[i]);
+				newRow = table.insertRow(table.rows.length);
+				newCell = newRow.insertCell(0);
+				newCell.appendChild(textNode);
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div id="mainDiv">
+			<form>
+				<input type="text" id="inputText" name="text1" placeholder="Enter Text">
+			</form>
+			<button id="addElement" onclick='addElement("mainDiv")'>+</button>
+			<button id="remElement" onclick="alert('Access Denied! You have no SUDO rigths')">-</button>
+			<button id="up" onclick='chLOC("mainDiv", "up")'>^</button>
+			<button id="down" onclick='chLOC("mainDiv", "down")'>v</button>
+		</div>
+	</div>
+	<table id="table" style="border: black 1px solid;">
+		<tr>
+			<th>Name</th>
+		</tr>
+	</table>
+</body>
+</html>
