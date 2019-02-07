@@ -1,0 +1,10 @@
+#!/bin/bash
+
+changeExt(){
+	for i in "$1"/* ; do
+		mv $i $i.new
+	done
+}
+
+changeExt .
+
