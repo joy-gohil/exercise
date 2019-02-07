@@ -1,0 +1,80 @@
+@keyframes pushElement{
+				from{
+					top: -100px;
+					opacity: 0;
+				}to{
+					top: 0px;
+					opacity: 1;
+				}
+			}
+			@keyframes unshiftElement{
+				from{
+					top: 100px;
+					opacity: 0;
+
+				}to{
+					top: 0px;
+					opacity: 1;
+				}
+			}
+			@keyframes removeElementPOP{
+				from{
+					transform: scale(1);
+					opacity: 1;
+				}
+				to{
+					transform: scale(0);
+					opacity: 0;
+				}
+			}
+			@keyframes removeElementDQ{
+				from{
+					transform: scale(1);
+					opacity: 1;
+				}
+				to{
+					transform: scale(0);
+					opacity: 0;
+				}
+			}
+			.animeNQ{  
+				position: relative;
+				animation-name: pushElement;
+				animation-duration: 1s;
+			}
+			.animePush{  
+				position: relative;
+				animation-name: unshiftElement;
+				animation-duration: 1s;
+			}
+			.animePop{  
+				position: relative;
+				animation-name: removeElementPOP;
+				animation-duration: 1s;
+			}
+			.animeDQ{  
+				position: relative;
+				animation-name: removeElementDQ;
+				animation-duration: 1s;
+			}
+			.itemPos {
+				margin: 5px; 
+				background-color: #888888; 
+				width: 100%; 
+				padding: 2.5px;
+				font-size: 24px;
+			}
+			.valign{
+				align-items: center;
+				display: flex;
+			}
+			.btn{
+				width: 100%; 
+				height: 50%; 
+				border: 0px; 
+				margin-bottom: 10px;
+			}
+			.baseItem{
+				margin: 5px;
+				
+			}
