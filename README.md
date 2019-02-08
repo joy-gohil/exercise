@@ -6,6 +6,6 @@
   |- (Task2) perform javascript program to implement various JS DOM basic HTML manipulation <br>
   |- (Task3) Single Array Stack Queue using JS DOM Advanced <br>
   |- (Task4) Parse the given data to JSON in JS without using any library <br>
-###### (Upcoming)  |- (Task5) csv to json and vice versa convertor 
-###### (Upcoming)  |- (Task6) oops concept program 
+  |- (Task5) OOPs concept program (UPDATED ON 08/02/2019)
+###### (Upcoming)  |- (Task6) csv to json and vice versa convertor 
 ###### (Upcoming)  |- (task7) program to perform async/await feature 
